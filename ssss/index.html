@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Leaflet</title>
+    <link rel="stylesheet" href="./leaflet/leaflet.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .choose-year input {
+            width: 80px;
+        }
+
+        .btnStyle {
+            height: 40px;
+            background-color: #c90bc2;
+            color: white;
+            border-radius: 5px;
+        }
+
+        #map {
+            width: 100%;
+            height: 600px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Statistic Map</h1>
+        <h2>Select Year</h2>
+        <p class="choose-year">
+            Choose a year (1990-2021)：<input id="year-input" value="2021" />
+            <button id="set-year" class="btnStyle">Set Year</button>
+        </p>
+        <h2>Select a Municipality</h2>
+        <p>Enter a municipality：<input id="city-input" /> <button id="submit-city" class="btnStyle">Search</button></p>
+        <button class="btnStyle">
+            <a href="./attached.html">Back to Filter Page</a>
+        </button>
+    </div>
+    <div id="map"></div>
+
+    <script src="./leaflet/leaflet.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

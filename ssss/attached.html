@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+    <style>
+        header {
+            text-align: center;
+            color: #c90bc2;
+        }
+
+
+        .box {
+            width: 400px;
+            margin: 0 auto;
+            position: relative;
+            left: 50px;
+        }
+
+        #city {
+            width: 218px;
+        }
+
+        #default {
+            width: 70px;
+
+        }
+
+        .btnStyle {
+            background-color: #c90bc2;
+            height: 35px;
+            border: none;
+            color: white;
+        }
+
+        .btnStyle>a {
+            color: white;
+            text-decoration: none;
+        }
+
+        form>div {
+            margin: 10px 0;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        .box input {
+            height: 30px;
+            padding-left: 10px;
+            font-size: 20px;
+        }
+
+        .box select {
+            width: 300px;
+            height: 30px;
+        }
+
+        .time>input {
+            width: 80px !important;
+        }
+
+        .time>span {
+            margin-right: 10px;
+        }
+
+        .info {
+            text-align: center;
+            color: #c90bc2;
+            display: none;
+        }
+
+        #clear {
+            color: white;
+            background-color: #c90bc2;
+            border: none;
+            padding: 10px;
+            float: right;
+        }
+
+        td,
+        th {
+            border: 1px solid lightgray;
+        }
+
+        .saveBtn {
+            border: none;
+            background-color: #c90bc2;
+            color: white;
+            font-size: 18px;
+            padding: 5px 10px;
+            float: right;
+            margin: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Statistic Portal</h1>
+        <h2>
+            Data shown in the webpage is found in StatFin website and is licensed under <a
+                href="https://creativecommons.org/licenses/by/4.0/deed.en" target="_blank">Copyright notice</a>.
+        </h2>
+    </header>
+
+    <div class="box">
+        <form id="form">
+            <div>
+                <label for="city">1. Municipality:</label>
+                <div>
+                    <input type="text" id="city" />
+                    <button class="btnStyle" id="default" type="button">Default</button>
+                </div>
+            </div>
+            <div>
+                <label for="main-activity">2. Data type:</label>
+                <div>
+                    <select id="main-activity">
+                        <option value="SSS">please select</option>
+                        <option value="11+12">Labour force</option>
+                        <option value="11">Employed</option>
+                        <option value="12">Unemployed</option>
+                        <option value="21-99">Persons outside the labour force</option>
+                        <option value="21">0-14 years old</option>
+                        <option value="22">Students, pupils</option>
+                        <option value="25">Conscripts, persons in non-military service</option>
+                        <option value="24+29">Pensioners</option>
+                        <option value="99">Other persons outside the labour force</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="name">3. Gender: </label>
+                <div>
+                    <select id="gender">
+                        <option value="SSS">please select</option>
+                        <option value="1">Males</option>
+                        <option value="2">Females</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="name">4. Age group:</label>
+                <div>
+                    <select id="age">
+                        <option value="SSS">please select</option>
+                        <option value="0-17">0 - 17</option>
+                        <option value="18-64">18 - 64</option>
+                        <option value="65-">65 -</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="name">5. Year:</label>
+                <div class="time">
+                    <span for="start">From: </span>
+                    <input class="inputs" type="number" id="start" min="1987" max="2021" step="1" value="1990">
+                    <span for="end">to: </span>
+                    <input class="inputs" type="number" id="end" min="1987" max="2021" step="1" value="2021">
+                </div>
+            </div>
+
+            <div>
+                <button class="btnStyle" type="submit">Create Graph</button>
+                <button class="btnStyle">
+                    <a href="./index.html" target="_parent">View Birth and Death Data Map</a>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <h1 id="wait" style="color: #c90bc2;display: none;">Please wait......</h1>
+
+    <div class="info">
+        <h2>Labor Force Report in the <span id="cityName"></span> from 2001 to 2005</h2>
+        <div id="chart"></div>
+        <button class="saveBtn">save</button>
+    </div>
+
+    <div class="table">
+
+    </div>
+    <script src="./attached.js"></script>
+</body>
+
+</html>
